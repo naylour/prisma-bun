@@ -1,0 +1,69 @@
+{
+    "name": "@naylour/prisma-bun",
+    "version": "0.1.0",
+    "description": "Prisma driver adapters backed by Bun's native database APIs",
+    "license": "MIT",
+    "engines": {
+        "bun": ">=1.2.0"
+    },
+    "author": {
+        "email": "ShahTheShah@ya.ru",
+        "name": "@naylour",
+        "url": "https://github.com/naylour"
+    },
+    "scripts": {
+        "build": "bun run ./build.ts",
+        "build:types": "tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist",
+        "typecheck": "tsc --noEmit",
+        "check": "biome check .",
+        "check:fix": "biome check --write .",
+        "test": "bun test",
+        "test:watch": "bun test --watch",
+        "hooks:install": "hk install",
+        "prepublishOnly": "bun run check && bun run typecheck && bun run test && bun run build"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/naylour/prisma-bun.git",
+        "directory": ""
+    },
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./postgres": {
+            "types": "./dist/postgres.d.ts",
+            "default": "./dist/postgres.js"
+        },
+        "./sqlite": {
+            "types": "./dist/sqlite.d.ts",
+            "default": "./dist/sqlite.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist"
+    ],
+    "sideEffects": false,
+    "devDependencies": {
+        "@types/bun": "^1.3.14",
+        "typescript": "^6.0.3"
+    },
+    "peerDependencies": {},
+    "keywords": [
+        "prisma",
+        "driver-adapter",
+        "bun",
+        "postgres",
+        "sqlite"
+    ],
+    "dependencies": {
+        "@prisma/driver-adapter-utils": "^7.8.0"
+    }
+}

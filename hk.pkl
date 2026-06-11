@@ -1,0 +1,38 @@
+amends "package://github.com/jdx/hk/releases/download/v1.46.0/hk@1.46.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.46.0/hk@1.46.0#/Builtins.pkl"
+
+local linters = new Mapping<String, Step> {
+    ["biome"] = Builtins.biome
+}
+
+local verify = new Mapping<String, Step> {
+    ["typecheck"] {
+        glob = "**/*.ts"
+        check = "bun run typecheck"
+    }
+    ["test"] {
+        glob = "**/*.ts"
+        check = "bun test"
+    }
+}
+
+hooks {
+    ["pre-commit"] {
+        fix = true
+        stash = "git"
+        steps = linters
+    }
+    ["pre-push"] {
+        steps = verify
+    }
+    ["fix"] {
+        fix = true
+        steps = linters
+    }
+    ["check"] {
+        steps {
+            ...linters
+            ...verify
+        }
+    }
+}

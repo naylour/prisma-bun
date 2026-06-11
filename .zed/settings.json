@@ -1,0 +1,26 @@
+{
+    "languages": {
+        "JavaScript": {
+            "language_servers": ["!eslint", "..."],
+            "formatter": { "language_server": { "name": "biome" } }
+        },
+        "TypeScript": {
+            "language_servers": ["!eslint", "..."],
+            "formatter": { "language_server": { "name": "biome" } }
+        },
+        "Pkl": { "language_servers": ["!pkl"] }
+    },
+
+    "lsp": {
+        "biome": {
+            "binary": {
+                "path": "~/.local/share/mise/shims/biome",
+                "arguments": ["lsp-proxy"]
+            },
+            "settings": {
+                "config_path": "./biome.json",
+                "require_config_file": true
+            }
+        }
+    }
+}
