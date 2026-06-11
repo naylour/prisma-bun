@@ -31,8 +31,9 @@ jobs:
 
             - name: Publish to GitHub Packages
               run: |
-                  echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
-                  bun publish --registry https://npm.pkg.github.com
+                  echo "@naylour:registry=https://npm.pkg.github.com" > .npmrc
+                  echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
+                  npm publish
                   rm .npmrc
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
