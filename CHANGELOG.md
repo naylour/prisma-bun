@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/naylour/prisma-bun/compare/v1.0.1...v1.0.2) (2026-06-11)
+
+
+### Bug Fixes
+
+* **ci:** use npm publish for GitHub Packages to fix auth issue ([6514ce1](https://github.com/naylour/prisma-bun/commit/6514ce1909c5d5439c682cbfe03102c398becbcf))
+
 ## [1.0.1](https://github.com/naylour/prisma-bun/compare/v1.0.0...v1.0.1) (2026-06-11)
 
 
