@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/naylour/prisma-bun/compare/v1.0.2...v1.0.3) (2026-06-11)
+
+
+### Bug Fixes
+
+* **ci:** add packages: write permission for GitHub Packages publish ([996978f](https://github.com/naylour/prisma-bun/commit/996978f53032e455f62d8d6355fa5d09a62ca0a6))
+
 ## [1.0.2](https://github.com/naylour/prisma-bun/compare/v1.0.1...v1.0.2) (2026-06-11)
 
 
